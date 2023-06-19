@@ -17,7 +17,6 @@ def generate_data(datax, datay, start):
 def update_plot():
     data_x = [x for x in range(100)]
     data_y = deque([], maxlen=100)
-    dpg.set_value('asdf', data_y)
     dpg.add_line_series(data_x, list(data_y), tag='line', parent='testp')
     start = 0
     while True:

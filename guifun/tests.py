@@ -1,34 +1,37 @@
+import math
+import time
+import numpy as np
 
 
+class TestBase:
+
+    def __init__():
+        pass
 
 
-
-def test1_entry(somearg:int, anotherarg:str):
-    """
-    This is some test start
-    """
-    pass
-
-def test2_entry():
-    pass
-
-def test3_entry():
-    pass
-
-class SomeClass:
+class TestOne:
     "This is a doc string"
-    def __init__(somevar):
+    def __init__(self): # This can be used to init from somewhere else
         pass
 
-    def __call__(bleh, bleh2):
-        """
-        Here is another
-        """
-        pass
+    def __call__(self, context):
+        sm_c = context.sm_c
+        sm = context.sm
+        conn = context.conn
+        t0 = time.time()
+        t = t0
+        while True:
+            with sm_c:
+                t = np.linspace(0, 10, 101)
+                # Shift the sinusoid as a function of time.
+                x = np.sin(t + time.time())
+                
+
+
+
+
+
 
 exported_tests = {
-    'Example test 1' : test1_entry,
-    'Example test 2' : test2_entry,
-    'Example test 3' : test3_entry,
-    'Bleh' : SomeClass(),
+    'Bleh' : TestOne,
 }
